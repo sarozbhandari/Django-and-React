@@ -1,11 +1,54 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+        todoList: [],
+        activeItem: {
+          id: null,
+          title: '',
+          completed: false,
+        },
+        editing: false,
+      }
+
+    };
+
+    componentWillUnmount() {
+
+      }
+
+      fetchTask() {
+        /* For making API call and rendering data */
+        console.log("Binding")
+      }
+
+
   render() {
     return(
-      <div>
-        <h1>Hello Sharroz</h1>
+      <div class = "container">
+        <div id = "task-container">
+          <div id = "form-wrapper">
+            <form id = "form">
+              <div className = "flex-wrapper">
+                <div style = {{flex: 6}}>
+                  <input className = "form-control" id = "title" type = "text" placeholder = "Enter Task Here" />
+                </div>
+                <div style = {{flex: 1}}>
+                  <input id = "submit" className = "btn btn-warning" type = "submit" name = "Add" />
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id = "list-wrapper">
+
+          </div>
+        </div>
       </div>
     )
   }
