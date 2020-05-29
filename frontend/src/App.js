@@ -60,7 +60,18 @@ class App extends React.Component {
               {tasks.map(function(task, index){
                 return(
                   <div key = {index} className = "task-wrapper flex-wrapper">
-                    <span>{task.title }</span>
+                    <div style = {{flex: 7}}>
+                      <span>{task.title }</span>
+                    </div>
+
+                    <div style = {{flex: 1}}>
+                      <button className = "btn btn-sm btn-outline-info">Edit</button>
+                    </div>
+
+                    <div style = {{flex: 1}}>
+                    <button className = "btn btn-sm btn-outline-dark delete">Delete</button>
+                    </div>
+
                   </div>
                 )
               })}
