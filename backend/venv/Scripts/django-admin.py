@@ -1,4 +1,4 @@
-#!f:\practice\react.js\react-django-project\venv\scripts\python.exe
+#!f:\practice\react.js\react-django-project\backend\venv\scripts\python.exe
 from django.core import management
 
 if __name__ == "__main__":

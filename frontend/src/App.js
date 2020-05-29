@@ -16,21 +16,32 @@ class App extends React.Component {
         editing: false,
       }
 
+      /* Binding It fives access to this method in fetchTask*/
+      this.fetchTask = this.fetchTask.bind(this)
+
     };
 
-    componentWillUnmount() {
-
+    componentWillMount() {
+      this.fetchTask()
       }
 
       fetchTask() {
         /* For making API call and rendering data */
-        console.log("Binding")
+        fetch('http://127.0.0.1:8000/api/task-list/')
+        .then(response => response.json())
+        .then(data => 
+            this.setState({
+              todoList: data,
+            })
+          )
       }
 
 
+
   render() {
+    var tasks = this.state.todoList
     return(
-      <div class = "container">
+      <div className = "container">
         <div id = "task-container">
           <div id = "form-wrapper">
             <form id = "form">
@@ -46,7 +57,13 @@ class App extends React.Component {
           </div>
 
           <div id = "list-wrapper">
-
+              {tasks.map(function(task, index){
+                return(
+                  <div key = {index} className = "task-wrapper flex-wrapper">
+                    <span>{task.title }</span>
+                  </div>
+                )
+              })}
           </div>
         </div>
       </div>
